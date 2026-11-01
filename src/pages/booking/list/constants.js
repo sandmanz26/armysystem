@@ -1,0 +1,17 @@
+export const tabs = [
+    "Overall",
+    "Upcoming",
+    "Ongoing",
+    "Return Assets",
+    "Completed",
+    "Completed with Missing Assets",
+    "Cancelled",
+    "Overdue",
+];
+export const MONTH_NAMES = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December",
+];
+export const DAY_ABBREVS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+export const PER_PAGE = 10;
+export const TODAY = new Date(2026, 3, 23);

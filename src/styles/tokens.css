@@ -1,0 +1,395 @@
+/*
+ * Design Tokens — CSS Custom Properties
+ *
+ * This file is generated from docs/design-tokens.json (via Tokens Studio export).
+ * Edit the JSON tokens in Figma, export, then paste the updated values here.
+ * Tailwind reads these variables from tailwind.config.ts.
+ *
+ * Layer order:  Brand → Primitive → Semantic
+ */
+
+:root {
+  /* ── Brand ─────────────────────────────────────────────────── */
+  /* Brand red now lives in the Figma layer below as
+     --color-background-primary-default; see the aliases block. */
+  --color-brand-navy:          26 58 107;  /* #1A3A6B */
+  --color-brand-bluesilo:      0 71 171;  /* #0047AB */
+
+  /* ── Primitive · Red ────────────────────────────────────────── */
+  --color-red-50:  254 242 242;  /* #FEF2F2 */
+  --color-red-100: 254 226 226;  /* #FEE2E2 */
+  --color-red-200: 254 202 202;  /* #FECACA */
+  --color-red-300: 252 165 165;  /* #FCA5A5 */
+  --color-red-400: 248 113 113;  /* #F87171 */
+  --color-red-500: 239 68 68;  /* #EF4444 */
+  --color-red-600: 220 38 38;  /* #DC2626 */
+  --color-red-700: 185 28 28;  /* #B91C1C */
+  /* CORRECTED 14 Sep 2026 against the Figma token export: these two held the
+     app's OLD brand teal (#115e59 / #0f4f4b) rather than Tailwind/Figma red.
+     The brand teal is rose, not red — .Brand.primary → Color.rose in Figma —
+     so it never belonged in this ramp. Zero consumers at the time of the fix. */
+  --color-red-800: 153 27 27;  /* #991B1B */
+  --color-red-900: 127 29 29;  /* #7F1D1D */
+  --color-red-950: 69 10 10;  /* #450A0A */
+
+  /* ── Primitive · Gray ───────────────────────────────────────── */
+  --color-gray-50:  249 250 251;  /* #F9FAFB */
+  --color-gray-100: 243 244 246;  /* #F3F4F6 */
+  --color-gray-200: 229 231 235;  /* #E5E7EB */
+  --color-gray-300: 209 213 219;  /* #D1D5DB */
+  --color-gray-400: 156 163 175;  /* #9CA3AF */
+  --color-gray-500: 107 114 128;  /* #6B7280 */
+  --color-gray-600: 75 85 99;  /* #4B5563 */
+  --color-gray-700: 55 65 81;  /* #374151 */
+  --color-gray-800: 31 41 55;  /* #1F2937 */
+  --color-gray-900: 17 24 39;  /* #111827 */
+  --color-gray-950: 3 7 18;  /* #030712 */
+
+  /* ── Primitive · Green ──────────────────────────────────────── */
+  --color-green-50:  240 253 244;  /* #F0FDF4 */
+  --color-green-100: 220 252 231;  /* #DCFCE7 */
+  --color-green-200: 187 247 208;  /* #BBF7D0 */
+  --color-green-300: 134 239 172;  /* #86EFAC */
+  --color-green-400: 74 222 128;  /* #4ADE80 */
+  --color-green-500: 34 197 94;  /* #22C55E */
+  --color-green-600: 22 163 74;  /* #16A34A */
+  --color-green-700: 21 128 61;  /* #15803D */
+  --color-green-800: 22 101 52;  /* #166534 */
+  --color-green-900: 20 83 45;  /* #14532D */
+
+  /* ── Primitive · Yellow ─────────────────────────────────────── */
+  /* CORRECTED 14 Sep 2026: this ramp held Tailwind *amber* (#F59E0B / #B45309 …)
+     under the name "yellow". Figma's warning role is true yellow — text/warning
+     #a16207, background/warning/default #eab308, background/warning/invert/soft
+     #fefce8, border/invert/warning #facc15 — so every semantic token built on
+     this ramp resolved a shade off. Now Tailwind's real yellow scale. */
+  --color-yellow-50:  254 252 232;  /* #FEFCE8 */
+  --color-yellow-100: 254 249 195;  /* #FEF9C3 */
+  --color-yellow-200: 254 240 138;  /* #FEF08A */
+  --color-yellow-300: 253 224 71;  /* #FDE047 */
+  --color-yellow-400: 250 204 21;  /* #FACC15 */
+  --color-yellow-500: 234 179 8;  /* #EAB308 */
+  --color-yellow-600: 202 138 4;  /* #CA8A04 */
+  --color-yellow-700: 161 98 7;  /* #A16207 */
+  --color-yellow-800: 133 77 14;  /* #854D0E */
+  --color-yellow-900: 113 63 18;  /* #713F12 */
+
+  /* ── Primitive · Blue ───────────────────────────────────────── */
+  --color-blue-50:  239 246 255;  /* #EFF6FF */
+  --color-blue-100: 219 234 254;  /* #DBEAFE */
+  --color-blue-200: 191 219 254;  /* #BFDBFE */
+  --color-blue-300: 147 197 253;  /* #93C5FD */
+  --color-blue-400: 96 165 250;  /* #60A5FA */
+  --color-blue-500: 59 130 246;  /* #3B82F6 */
+  --color-blue-600: 37 99 235;  /* #2563EB */
+  --color-blue-700: 29 78 216;  /* #1D4ED8 */
+  --color-blue-800: 30 64 175;  /* #1E40AF */
+  --color-blue-900: 30 58 138;  /* #1E3A8A */
+
+  /* ── Primitive · Purple ─────────────────────────────────────── */
+  --color-purple-50:  250 245 255;  /* #FAF5FF */
+  --color-purple-100: 243 232 255;  /* #F3E8FF */
+  --color-purple-200: 233 213 255;  /* #E9D5FF */
+  --color-purple-500: 168 85 247;  /* #A855F7 */
+  --color-purple-600: 147 51 234;  /* #9333EA */
+  /* CORRECTED 14 Sep 2026: 700/900 held Tailwind *violet* (#7C3AED / #4C1D95).
+     Figma color/text/purple and color/border/purple are #7e22ce. */
+  --color-purple-700: 126 34 206;  /* #7E22CE */
+  --color-purple-900: 88 28 135;  /* #581C87 */
+
+  /* ══ FIGMA VARIABLES — 1:1 ══════════════════════════════════════════
+     Every property below mirrors a Figma variable PATH exactly:
+
+         color/text/default                  →  --color-text-default
+         color/background/primary/invert/soft →  --color-background-primary-invert-soft
+         color/border/invert/default          →  --color-border-invert-default
+
+     Rule: `color/<rest...>`  →  `--color-<rest joined by ->`.
+     This is the ONLY layer that carries literal values, and the only layer
+     to edit when Figma changes. Everything below it aliases these.
+     Values read live from the +Theme collection, current publish generation
+     (see ds_engineer.md §5.1 / figma-color-sync Pitfall #19).
+     ═══════════════════════════════════════════════════════════════════ */
+
+  /* color/text/* */
+  --color-text-default:                       3 7 18;  /* #030712 */
+  --color-text-body:                          107 114 128;  /* #6b7280 */
+  --color-text-caption:                       75 85 99;  /* #4b5563 */
+  --color-text-placeholder:                   107 114 128;  /* #6b7280 */
+  --color-text-disabled:                      156 163 175;  /* #9ca3af */
+  --color-text-loading:                       55 65 81;  /* #374151 · color/text/loading → gray/700 */
+  --color-text-base:                          255 255 255;  /* #ffffff */
+  --color-text-invert-default:                255 255 255;  /* #ffffff */
+  --color-text-primary:                       17 94 89;  /* #115e59 */
+  --color-text-danger:                        185 28 28;  /* #b91c1c */
+  --color-text-success:                       21 128 61;  /* #15803d */
+  --color-text-warning:                       161 98 7;  /* #a16207 */
+  --color-text-info:                          29 78 216;  /* #1d4ed8 */
+  --color-text-purple:                        126 34 206;  /* #7e22ce */
+  --color-text-orange:                        194 65 12;  /* #c2410c */
+  --color-text-link:                          29 78 216;  /* #1d4ed8 */
+
+  /* color/background/* */
+  --color-background-surface:                 255 255 255;  /* #ffffff */
+  /* color/background/modal — same #ffffff as surface today, but its own
+     property: a modal surface is free to diverge (Pitfall #10). */
+  --color-background-modal:                   255 255 255;  /* #ffffff */
+  --color-background-surface-lv1:             255 255 255;  /* #ffffff */
+  --color-background-surface-lv2:             255 255 255;  /* #ffffff · color/background/surface lv2 */
+  --color-background-main-background:         249 250 251;  /* #f9fafb */
+  --color-background-default-default:         243 244 246;  /* #f3f4f6 */
+  --color-background-default-soft:            249 250 251;  /* #f9fafb */
+  --color-background-default-hovered:         229 231 235;  /* #e5e7eb */
+  --color-background-default-invert-default:  55 65 81;  /* #374151 */
+  --color-background-disabled:                229 231 235;  /* #e5e7eb */
+  --color-background-divider:                 229 231 235;  /* #e5e7eb */
+  --color-background-scroll-bar:              209 213 219;  /* #d1d5db */
+  --color-background-primary-default:         17 94 89;  /* #115e59 */
+  --color-background-primary-hovered:         4 47 46;  /* #042f2e */
+  --color-background-primary-invert-soft:     240 253 250;  /* #f0fdfa */
+  --color-background-primary-invert-default:  204 251 241;  /* #ccfbf1 */
+  --color-background-primary-invert-hovered:  153 246 228;  /* #99f6e4 */
+  --color-background-primary-invert-focused:  204 251 241;  /* #ccfbf1 */
+  --color-background-success-default:         21 128 61;  /* #15803d */
+  --color-background-success-invert-soft:     240 253 244;  /* #f0fdf4 */
+  --color-background-success-invert-default:  220 252 231;  /* #dcfce7 */
+  --color-background-warning-default:         234 179 8;  /* #eab308 */
+  --color-background-warning-invert-soft:     254 252 232;  /* #fefce8 */
+  --color-background-warning-invert-default:  254 249 195;  /* #fef9c3 */
+  --color-background-danger-invert-soft:      254 242 242;  /* #fef2f2 */
+  --color-background-danger-invert-default:   254 226 226;  /* #fee2e2 */
+  --color-background-info-default:            29 78 216;  /* #1d4ed8 */
+  --color-background-info-invert-soft:        239 246 255;  /* #eff6ff */
+  --color-background-info-invert-default:     219 234 254;  /* #dbeafe */
+  --color-background-purple-default:          126 34 206;  /* #7e22ce */
+  /* The SHM dashboard's `Assets by Category` donut binds eight segment colours;
+     these three were the ones this file did not yet carry. Read off the
+     `Chart - Asset` ellipses on Figma page SHM (`5133:38313`). */
+  --color-background-danger-default:          185 28 28;  /* #b91c1c */
+  --color-background-orange-default:          194 65 12;  /* #c2410c */
+  --color-background-info-pressed:            30 58 138;  /* #1e3a8a */
+  --color-background-purple-invert-default:   243 232 255;  /* #f3e8ff */
+  --color-background-purple-invert-soft:      250 245 255;  /* #faf5ff */
+  --color-background-orange-invert-soft:      255 247 237;  /* #fff7ed */
+  --color-background-orange-invert-default:   255 237 213;  /* #ffedd5 */
+
+  /* color/border/* */
+  --color-border-base:                        255 255 255;  /* #ffffff */
+  --color-border-default:                     156 163 175;  /* #9ca3af */
+  --color-border-primary:                     17 94 89;  /* #115e59 */
+  --color-border-danger:                      185 28 28;  /* #b91c1c */
+  --color-border-success:                     21 128 61;  /* #15803d */
+  --color-border-warning:                     161 98 7;  /* #a16207 */
+  --color-border-info:                        29 78 216;  /* #1d4ed8 */
+  --color-border-purple:                      126 34 206;  /* #7e22ce */
+  --color-border-orange:                      194 65 12;  /* #c2410c */
+  --color-border-disabled:                    209 213 219;  /* #d1d5db */
+  --color-border-invert-default:              229 231 235;  /* #e5e7eb */
+  --color-border-invert-primary:              153 246 228;  /* #99f6e4 */
+  --color-border-invert-info:                 191 219 254;  /* #bfdbfe */
+  --color-border-invert-success:              187 247 208;  /* #bbf7d0 */
+  --color-border-invert-warning:              250 204 21;  /* #facc15 */
+  --color-border-invert-danger:               254 202 202;  /* #fecaca */
+  --color-border-invert-purple:               233 213 255;  /* #e9d5ff */
+  --color-border-invert-orange:               254 215 170;  /* #fed7aa */
+
+  /* color/card/* */
+  --color-card-border-neutral:                229 231 235;  /* #e5e7eb */
+  --color-card-bg-base-1:                     239 246 255;  /* #eff6ff */
+
+  /* ══ LEGACY SEMANTIC ALIASES ════════════════════════════════════════
+     The app's older names, kept so ~hundreds of existing call sites keep
+     working while screens migrate to the Figma names page by page.
+     NONE of these carry a literal value — each points at its Figma
+     variable above, so a Figma change propagates automatically.
+     Do not add new ones; use the Figma names directly on new work.
+     ═══════════════════════════════════════════════════════════════════ */
+
+  /* Text */
+  --color-content-primary:     var(--color-text-default);
+  --color-content-secondary:   var(--color-gray-700);
+  --color-content-muted:       var(--color-text-body);
+  --color-content-disabled:    var(--color-text-disabled);
+  --color-content-inverse:     var(--color-text-base);
+  --color-content-brand:       var(--color-text-primary);
+  --color-content-error:       var(--color-text-danger);
+  --color-content-success:     var(--color-text-success);
+  --color-content-warning:     var(--color-text-warning);
+  --color-content-caption:     var(--color-text-caption);
+  --color-content-placeholder: var(--color-text-placeholder);
+
+  /* Background */
+  --color-surface:                var(--color-background-surface);
+  --color-surface-page:           var(--color-background-main-background);
+  --color-surface-subtle:         var(--color-background-default-default);
+  --color-surface-disabled:       var(--color-background-disabled);
+  --color-surface-inverse:        var(--color-background-default-invert-default);
+  --color-fill-brand:             var(--color-background-primary-default);
+  --color-fill-brand-hover:       var(--color-background-primary-hovered);
+  --color-fill-brand-subtle:      var(--color-background-danger-invert-soft);
+  --color-fill-brand-soft:        var(--color-background-primary-invert-soft);
+  --color-fill-brand-tint:        var(--color-background-primary-invert-default);
+  --color-fill-brand-tint-strong: var(--color-background-primary-invert-hovered);
+  --color-fill-error:             var(--color-background-danger-invert-soft);
+  --color-fill-success:           var(--color-background-success-invert-soft);
+  --color-fill-warning:           var(--color-background-warning-invert-soft);
+  --color-fill-info:              var(--color-background-info-invert-soft);
+
+  /* Border */
+  --color-line-default:    var(--color-border-invert-default);
+  --color-line-strong:     var(--color-border-disabled);
+  --color-line-muted:      var(--color-gray-100);
+  --color-line-focus:      var(--color-border-primary);
+  --color-line-brand:      var(--color-border-primary);
+  --color-line-error:      var(--color-red-500);
+  --color-line-control:    var(--color-border-default);
+  --color-line-brand-soft: var(--color-border-invert-primary);
+  --color-line-disabled:   var(--color-border-disabled);
+  --color-line-focus-ring: var(--color-background-primary-invert-focused);
+  --color-line-info:       var(--color-border-info);
+  --color-line-success:    var(--color-border-success);
+  --color-line-warning:    var(--color-border-warning);
+  --color-line-danger:     var(--color-border-danger);
+
+  /* Brand (3,603 usages of brand-primary) */
+  --color-brand-primary:       var(--color-background-primary-default);
+  --color-brand-primary-hover: var(--color-background-primary-hovered);
+
+  /* ── Semantic · Status ──────────────────────────────────────── */
+  --color-status-upcoming-bg:      var(--color-blue-100);
+  --color-status-upcoming-text:    var(--color-blue-800);
+  --color-status-upcoming-border:  var(--color-blue-200);
+
+  --color-status-ongoing-bg:       var(--color-yellow-100);
+  --color-status-ongoing-text:     var(--color-yellow-800);
+  --color-status-ongoing-border:   var(--color-yellow-300);
+
+  --color-status-return-bg:        var(--color-purple-100);
+  --color-status-return-text:      var(--color-purple-700);
+  --color-status-return-border:    var(--color-purple-200);
+
+  --color-status-completed-bg:     var(--color-green-100);
+  --color-status-completed-text:   var(--color-green-800);
+  --color-status-completed-border: var(--color-green-300);
+
+  --color-status-cancelled-bg:     var(--color-gray-100);
+  --color-status-cancelled-text:   var(--color-gray-600);
+  --color-status-cancelled-border: var(--color-gray-300);
+
+  --color-status-overdue-bg:       var(--color-red-100);
+  --color-status-overdue-text:     var(--color-red-700);
+  --color-status-overdue-border:   var(--color-red-300);
+}
+
+/*
+ * Figma token namespace — Booking 2.0 ONLY (List, Create, Detail, Onboarding).
+ *
+ * Unlike the semantic tokens above (content-*, brand-*, line-*, fill-*, which
+ * are the app-wide defaults used by every other screen, including the old
+ * Booking module), these --figma-* variables are named after the literal
+ * Figma variable PATH (e.g. --figma-color-text-default ↔ Figma's
+ * "color/text/default"), not a paraphrased app-side name. Requested by the
+ * user 2026-09-01 specifically so Booking 2.0's token names are traceable
+ * 1:1 back to Figma, not just value-matched.
+ *
+ * Source: Figma "TRX 2.0 New" file, +Theme.color.* collection — cross-checked
+ * both via live reads through the Desktop Bridge MCP connection AND the
+ * user-supplied Tokens Studio export (design.tokens (4).json). Every value
+ * below is a direct, confirmed 1:1 copy — nothing inferred.
+ *
+ * Used ONLY by classes under the Tailwind `figma` color key (tailwind.config.js)
+ * — e.g. text-figma-default, bg-figma-primary, border-figma-subtle — which in
+ * turn are used ONLY inside src/pages-tsx/booking-2/**. No other screen
+ * references this color key, so nothing outside Booking 2.0 is affected.
+ * Superseded the old .dt-figma-scope override block (which patched the
+ * shared content-primary/brand-primary/etc. tokens) — Booking 2.0 no longer
+ * shares/overrides those tokens at all, it has its own dedicated set.
+ */
+:root {
+  --figma-color-text-default:     3 7 18;  /* #030712 · color/text/default */
+  --figma-color-text-body:        107 114 128;  /* #6b7280 · color/text/body */
+  --figma-color-text-caption:     75 85 99;  /* #4b5563 · color/text/caption */
+  --figma-color-text-placeholder: 107 114 128;  /* #6b7280 · color/text/placeholder (dropdown/select placeholder) */
+  --figma-color-text-disabled:    156 163 175;  /* #9ca3af · color/text/disabled (native input placeholder + muted icons) */
+  --figma-color-text-danger:      185 28 28;  /* #b91c1c · color/text/danger */
+  /* Split 2026-09-07 (was one merged --figma-color-primary) — see
+     figma-color-sync SKILL.md Pitfall #10. text/primary,
+     background/primary/default, and border/primary are 3 DISTINCT Figma
+     variables that happen to share a value today. They're kept as 3
+     independent custom properties precisely so that if the design later
+     changes just one role (e.g. a darker border/primary while text/primary
+     stays the same), it's a 1-line edit here — not a re-split of a merged
+     variable across every consumer. */
+  /* Updated 14 Sep 2026 from #115e59 — that was the value of the PREVIOUS library
+     publish of these same variables; the current publish resolves to #115e59. */
+  --figma-color-text-primary:     17 94 89;  /* #115e59 · color/text/primary */
+  --figma-color-bg-primary:       17 94 89;  /* #115e59 · color/background/primary/default */
+  --figma-color-border-primary:   17 94 89;  /* #115e59 · color/border/primary */
+  --figma-color-primary-hovered:  4 47 46;  /* #042f2e · color/background/primary/hovered */
+  --figma-color-primary-soft:     240 253 250;  /* #f0fdfa · color/background/primary/invert/soft */
+  --figma-color-danger-soft:      254 242 242;  /* #fef2f2 · color/background/danger/invert/soft */
+  --figma-color-base:             255 255 255;  /* #ffffff · color/text/base + color/border/base (identical) */
+  --figma-color-bg-default:       243 244 246;  /* #f3f4f6 · color/background/default/default */
+  --figma-color-bg-soft:          249 250 251;  /* #f9fafb · color/background/default/soft */
+  --figma-color-border-default:   156 163 175;  /* #9ca3af · color/border/default (unselected pill/chip border) */
+  --figma-color-border-subtle:    229 231 235;  /* #e5e7eb · color/border/invert/default (input/card border) */
+  /* Not individually path-confirmed in Figma — primitive gray/red values only
+     (present in the user's Tokens Studio export's Color collection), used for
+     border-line-strong/error replacements where no +Theme semantic path was found. */
+  --figma-color-border-strong:    209 213 219;  /* #d1d5db */
+  --figma-color-border-error:     239 68 68;  /* #ef4444 */
+  /* Added 2026-09-01 from Step 2 - Schedule frame (node 5029:69733, "Schedule
+     - Empty Error") — confirmed by reading each text node's literal content,
+     not by layer name. */
+  --figma-color-bg-danger:        254 226 226;  /* #fee2e2 · color/background/danger/invert/default (error banner) */
+  --figma-color-border-danger:    185 28 28;  /* #b91c1c · color/border/danger (error banner border, invalid radio) — same hex as text/danger */
+  --figma-color-bg-disabled:      229 231 235;  /* #e5e7eb · color/background/disabled (disabled field fill) */
+  --figma-color-link:             29 78 216;  /* #1d4ed8 · color/text/link ("Review issue") */
+  /* Added 2026-09-02 from Step 4 - Nominal Roll "Review Booking - Collective -
+     CW 1" frame (node 5331:285198, the "Review Your Booking" confirm modal). */
+  --figma-color-bg-success:       220 252 231;  /* #dcfce7 · color/background/success/invert/default ("Lane Assigned" badge fill) */
+  --figma-color-border-success:   187 247 208;  /* #bbf7d0 · color/border/invert/success (badge stroke) */
+  --figma-color-text-success:     21 128 61;  /* #15803d · color/text/success (badge text/icon) */
+  /* Added 2026-09-02 from Onboarding Step 1 frames (nodes 5348:24188,
+     5356:90751, 5579:284417 — "Nominal Roll - List Default", "Scan ID -
+     Filled", "Non-Registered - Filled"). */
+  --figma-color-border-dangersoft: 254 202 202;  /* #fecaca · color/border/invert/danger ("Absent" badge border) */
+  --figma-color-bg-info:            219 234 254;  /* #dbeafe · color/background/info/invert/default ("Non-Registered" badge fill) */
+  --figma-color-border-info:        191 219 254;  /* #bfdbfe · color/border/invert/info (badge stroke) */
+  --figma-color-text-info:          29 78 216;  /* #1d4ed8 · color/text/info (badge text) — same hex as text/link, kept as a separate token since the two roles are conceptually distinct */
+  /* Added 2026-09-06 from Booking 2.0 Today's Booking frame (node 5176:61802)
+     — the "Total Bookings" summary card's warning/amber icon + fill. */
+  --figma-color-bg-warning:          254 249 195;  /* #fef9c3 · color/background/warning/invert/default */
+  --figma-color-text-warning:        161 98 7;  /* #a16207 · color/text/warning */
+  /* Added 2026-09-29 from Booking 2.0 Booking Details frame (node 5093:179277)
+     — the "Issued" Assignment ID badge. */
+  --figma-color-bg-purple:           243 232 255;  /* #f3e8ff · color/background/purple/invert/default */
+  --figma-color-text-purple:         126 34 206;  /* #7e22ce · color/text/purple */
+}
+
+/*
+ * Split-role overrides for `figma-primary` (see the split custom properties
+ * above + figma-color-sync SKILL.md Pitfall #10).
+ *
+ * Tailwind's `theme.colors.figma.primary` key is ONE value shared by every
+ * utility built from it — `text-figma-primary`, `bg-figma-primary`,
+ * `border-figma-primary`, `ring-figma-primary` all read the exact same CSS
+ * variable by construction. That key now points at --figma-color-text-primary
+ * (see tailwind.config.js), so without the rules below, bg-/border-/ring-
+ * would silently inherit the TEXT variable too — reintroducing the same
+ * merged-variable problem the split above was meant to fix.
+ *
+ * These rules redirect the non-text utilities to their own dedicated
+ * variables. `!important` is used deliberately (confirmed necessary by
+ * testing live — this project's Tailwind build does not reliably keep its
+ * generated utilities in a losing cascade layer relative to this file, so
+ * plain source-order/specificity alone let Tailwind's own rule win here).
+ * Scoped to exactly these 3 selectors, not a general escape hatch. Existing
+ * className usage across booking-2/** needs zero changes — same class
+ * names, now correctly decoupled underneath.
+ */
+/* Nilai token kini berupa channel triplet, jadi setiap pemakaian LANGSUNG
+   (di luar theme Tailwind) harus dibungkus rgb(...) sendiri. */
+.bg-figma-primary { background-color: rgb(var(--figma-color-bg-primary)) !important; }
+.border-figma-primary { border-color: rgb(var(--figma-color-border-primary)) !important; }
+.ring-figma-primary { --tw-ring-color: rgb(var(--figma-color-border-primary)) !important; }
