@@ -39,14 +39,14 @@ export function BookingRowMenu({ booking, onNavigate }: { booking: Booking; onNa
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const go = (path: string) => { setOpen(false); onNavigate?.(path); };
-  const detail = `/bookings-2/detail?id=${booking.id}`;
+  const detail = `/bookings/detail?id=${booking.id}`;
   const result = `/training-results-2/detail?bookingId=${encodeURIComponent(booking.id)}`;
   const multiCw = String(booking.courseware ?? "").split(",").filter((c) => c.trim()).length > 1;
   const topUp = () =>
     // One courseware: straight to the Top Up scan page. Several: Booking Detail asks which assignment first.
     go(multiCw
       ? detail
-      : scanUrl("/bookings-2/issue-assets", "topup", { baseStation: booking.assignedStations?.[0], bookingIds: booking.id, courseware: booking.courseware }, detail));
+      : scanUrl("/bookings/issue-assets", "topup", { baseStation: booking.assignedStations?.[0], bookingIds: booking.id, courseware: booking.courseware }, detail));
 
   const items: MenuItem[] = (() => {
     switch (booking.status) {
@@ -57,20 +57,20 @@ export function BookingRowMenu({ booking, onNavigate }: { booking: Booking; onNa
               { key: "topup", label: "Top Up Assets", icon: "package-plus", run: topUp },
             ]
           : [
-              { key: "issue", label: "Issue Assets", icon: "package-check", run: () => go(`/bookings-2/assignments/new?bookingId=${booking.id}&courseware=${encodeURIComponent(booking.courseware)}`) },
+              { key: "issue", label: "Issue Assets", icon: "package-check", run: () => go(`/bookings/assignments/new?bookingId=${booking.id}&courseware=${encodeURIComponent(booking.courseware)}`) },
               // Reschedule / Cancel live on Booking Detail (its own dialogs and views).
               { key: "resched", label: "Reschedule", icon: "clock-3", run: () => go(detail) },
               { key: "cancel", label: "Cancel Booking", icon: "x", danger: true, run: () => go(detail) },
             ];
       case "Ongoing":
         return [
-          { key: "continue", label: "Continue Session", icon: "circle-play", run: () => go(`/bookings-2/session?id=${booking.id}`) },
+          { key: "continue", label: "Continue Session", icon: "circle-play", run: () => go(`/bookings/session?id=${booking.id}`) },
           { key: "topup", label: "Top Up Assets", icon: "package-plus", run: topUp },
         ];
       case "Return Assets":
       case "Completed with Missing Assets":
         return [
-          { key: "return", label: "Return Assets", icon: "scan-line", run: () => go(scanUrl("/bookings-2/issue-assets", "return", { bookingIds: booking.id, baseStation: booking.assignedStations?.[0] }, detail)) },
+          { key: "return", label: "Return Assets", icon: "scan-line", run: () => go(scanUrl("/bookings/issue-assets", "return", { bookingIds: booking.id, baseStation: booking.assignedStations?.[0] }, detail)) },
           { key: "result", label: "View Training Result", icon: "clipboard-list", run: () => go(result) },
         ];
       case "Completed":
@@ -139,7 +139,7 @@ export function BookingRowMenu({ booking, onNavigate }: { booking: Booking; onNa
         subtitle={schedule}
         confirmLabel="Start Onboarding"
         onCancel={() => setOnboardingConfirm(false)}
-        onConfirm={() => { setOnboardingConfirm(false); onNavigate?.(`/bookings-2/onboarding?id=${booking.id}`); }}
+        onConfirm={() => { setOnboardingConfirm(false); onNavigate?.(`/bookings/onboarding?id=${booking.id}`); }}
       />,
         document.body,
       )}

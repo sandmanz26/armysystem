@@ -1,7 +1,7 @@
 // Booking 2.0 — Booking Detail page.
 //
 // New, isolated page (not a restyle of src/pages-tsx/booking/detail) — only
-// reachable via Booking 2.0's own Booking List (/bookings-2/detail?id=...).
+// reachable via Booking 2.0's own Booking List (/bookings/detail?id=...).
 // The old booking module's detail page is untouched. Driven directly off the
 // shared mock.ts Booking fields rather than a Zustand-store BOOKING_DATA
 // shape, since Booking 2.0's other pages follow that simpler, data-driven
@@ -237,8 +237,8 @@ export function BookingDetail2({ onNavigate }: BookingDetail2Props) {
   })();
   const startOnboarding = () => {
     const ready = onboardingReady(multi);
-    if (!isMultiCw) setOnboardingConfirm({ courseware: booking.courseware, schedule: oneLine(parseBookingTime(booking.bookingTime)), url: `/bookings-2/onboarding?id=${booking.id}` });
-    else if (ready.length === 1) setOnboardingConfirm({ courseware: ready[0].name, schedule: oneLine(ready[0].schedule), url: `/bookings-2/onboarding?id=${booking.id}&courseware=${encodeURIComponent(ready[0].name)}` });
+    if (!isMultiCw) setOnboardingConfirm({ courseware: booking.courseware, schedule: oneLine(parseBookingTime(booking.bookingTime)), url: `/bookings/onboarding?id=${booking.id}` });
+    else if (ready.length === 1) setOnboardingConfirm({ courseware: ready[0].name, schedule: oneLine(ready[0].schedule), url: `/bookings/onboarding?id=${booking.id}&courseware=${encodeURIComponent(ready[0].name)}` });
     else setMultiAction("onboarding");
   };
 
@@ -299,7 +299,7 @@ export function BookingDetail2({ onNavigate }: BookingDetail2Props) {
             <div className="flex items-center gap-3 flex-shrink-0">
               <button
                 type="button"
-                onClick={() => onNavigate?.(`/bookings-2/session?id=${booking.id}`)}
+                onClick={() => onNavigate?.(`/bookings/session?id=${booking.id}`)}
                 className="flex h-10 items-center gap-2 rounded-lg bg-primary-default px-4 text-sm font-semibold text-invert-default hover:bg-primary-hovered transition-colors"
               >
                 <CirclePlay size={16} />
@@ -329,7 +329,7 @@ export function BookingDetail2({ onNavigate }: BookingDetail2Props) {
                         onClick={() => {
                           setMenuOpen(false);
                           if (isMultiCw) setMultiAction("topup");
-                          else onNavigate?.(scanUrl("/bookings-2/issue-assets", "topup", { baseStation: baseStations[0], bookingIds: booking.id, courseware: booking.courseware }, `/bookings-2/detail?id=${booking.id}`));
+                          else onNavigate?.(scanUrl("/bookings/issue-assets", "topup", { baseStation: baseStations[0], bookingIds: booking.id, courseware: booking.courseware }, `/bookings/detail?id=${booking.id}`));
                         }}
                         className="flex h-9 w-full items-center gap-2 px-3 text-left text-sm font-medium text-default hover:bg-default-default"
                       >
@@ -363,7 +363,7 @@ export function BookingDetail2({ onNavigate }: BookingDetail2Props) {
               <button
                 type="button"
                 disabled={blocked}
-                onClick={() => onNavigate?.(`/bookings-2/assignments/new?bookingId=${booking.id}&courseware=${encodeURIComponent(booking.courseware)}`)}
+                onClick={() => onNavigate?.(`/bookings/assignments/new?bookingId=${booking.id}&courseware=${encodeURIComponent(booking.courseware)}`)}
                 className={cn(
                   "flex h-10 items-center gap-2 px-4 text-sm font-semibold border border-invert-default rounded-lg bg-surface",
                   blocked ? "text-disabled cursor-not-allowed" : "text-default hover:bg-default-soft",

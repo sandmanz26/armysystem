@@ -15,9 +15,7 @@ import { AnnotationTool } from "@/components/dev/AnnotationTool";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 import { Dashboard } from "@/pages-tsx/dashboard";
-import { TodaysBooking } from "@/pages-tsx/booking/today";
 import { TodaysBooking2 } from "@/pages-tsx/booking-2/today";
-import { BookingList } from "@/pages-tsx/booking/list";
 import { BookingList2 } from "@/pages-tsx/booking-2/list";
 import { CreateBooking2 } from "@/pages-tsx/booking-2/create";
 import { Onboarding2 } from "@/pages-tsx/booking-2/onboarding";
@@ -60,8 +58,6 @@ import { DataExport } from "@/pages-tsx/data-management/export";
 import { DataImport } from "@/pages-tsx/data-management/import";
 import { ActivityLog } from "@/pages-tsx/activity-log";
 import { Settings } from "@/pages-tsx/settings";
-import { CreateBooking } from "@/pages-tsx/booking/create";
-import { BookingDetail } from "@/pages-tsx/booking/detail";
 import { TrainingDetail } from "@/pages-tsx/training-results/detail";
 import { UserDetail } from "@/pages-tsx/user-management/user-detail";
 import { ResourcePlanning } from "@/pages-tsx/resource-planning";
@@ -147,7 +143,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
     if (currentPath.startsWith("/reports/stock-take"))
       return "/reports/stock-take";
     if (currentPath === "/bookings/detail") return "/bookings/list";
-    if (currentPath === "/bookings-2/detail") return "/bookings-2/list";
+    if (currentPath === "/bookings/detail") return "/bookings/list";
     if (currentPath === "/bookings/mst/detail") return "/bookings/mst";
     if (currentPath === "/bookings/mst/create") return "/bookings/mst";
     if (currentPath === "/bookings/tct/create") return "/bookings/tct";
@@ -288,40 +284,30 @@ export default function App() {
         />
 
         {/* Full screen pages (no layout) */}
+
+        {/* Booking 2.0 — isolated from /bookings/* above; see src/pages-tsx/booking-2 */}
         <Route
           path="/bookings/create"
           element={
             <ProtectedRoute>
-              <CreateBooking
+              <CreateBooking2
                 onClose={() => (window.location.href = "/bookings/list")}
               />
             </ProtectedRoute>
           }
         />
 
-        {/* Booking 2.0 — isolated from /bookings/* above; see src/pages-tsx/booking-2 */}
         <Route
-          path="/bookings-2/create"
+          path="/bookings/onboarding"
           element={
             <ProtectedRoute>
-              <CreateBooking2
-                onClose={() => (window.location.href = "/bookings-2/list")}
-              />
+              <Onboarding2 onClose={() => (window.location.href = "/bookings/list")} />
             </ProtectedRoute>
           }
         />
 
         <Route
-          path="/bookings-2/onboarding"
-          element={
-            <ProtectedRoute>
-              <Onboarding2 onClose={() => (window.location.href = "/bookings-2/list")} />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/bookings-2/session"
+          path="/bookings/session"
           element={
             <ProtectedRoute>
               <WithNavigate Component={OngoingSessionPage} />
@@ -330,7 +316,7 @@ export default function App() {
         />
 
         <Route
-          path="/bookings-2/detail"
+          path="/bookings/detail"
           element={
             <ProtectedRoute>
               <WithNavigate Component={BookingDetail2} />
@@ -355,7 +341,7 @@ export default function App() {
           }
         />
         <Route
-          path="/bookings-2/assignments/new"
+          path="/bookings/assignments/new"
           element={
             <ProtectedRoute>
               <WithNavigate Component={CreateAssignment2} />
@@ -363,7 +349,7 @@ export default function App() {
           }
         />
         <Route
-          path="/bookings-2/issue-assets"
+          path="/bookings/issue-assets"
           element={
             <ProtectedRoute>
               <WithNavigate Component={IssueAssets2} />
@@ -403,27 +389,11 @@ export default function App() {
           element={<Navigate to="/user-management/user-list" replace />}
         />
         <Route
+          path="/bookings"
+          element={<Navigate to="/bookings/list" replace />}
+        />
+        <Route
           path="/bookings/today"
-          element={
-            <ProtectedRoute>
-              <WithNavigate Component={TodaysBooking} />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/bookings/list"
-          element={
-            <ProtectedRoute>
-              <WithNavigate Component={BookingList} />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/bookings-2"
-          element={<Navigate to="/bookings-2/list" replace />}
-        />
-        <Route
-          path="/bookings-2/today"
           element={
             <ProtectedRoute>
               <WithNavigate Component={TodaysBooking2} />
@@ -431,10 +401,10 @@ export default function App() {
           }
         />
         <Route
-          path="/bookings-2/list"
+          path="/bookings/list"
           element={
             <ProtectedRoute>
-              <WithNavigate Component={BookingList2} createPath="/bookings-2/create" />
+              <WithNavigate Component={BookingList2} createPath="/bookings/create" />
             </ProtectedRoute>
           }
         />
@@ -517,14 +487,6 @@ export default function App() {
           element={
             <ProtectedRoute>
               <MSTBookingDetail />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/bookings/detail"
-          element={
-            <ProtectedRoute>
-              <BookingDetail />
             </ProtectedRoute>
           }
         />

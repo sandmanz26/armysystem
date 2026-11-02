@@ -368,16 +368,13 @@ function GlobalSearch({ onNavigate }: { onNavigate?: (path: string) => void }) {
 // ── Path to Breadcrumb mapping ────────────────────────────────────────────────
 const PATH_BREADCRUMBS: Record<string, string[]> = {
   "/dashboard": ["Dashboard"],
-  "/bookings/today": ["Bookings", "Today's Booking"],
   // Figma Today's Booking (6214:246975): home › "Today's Booking".
-  "/bookings-2/today": ["Today's Booking"],
+  "/bookings/today": ["Today's Booking"],
   // Figma Notifications (5029:24364): home › "Notifications".
   "/notifications": ["Notifications"],
-  "/bookings/list": ["Bookings", "Booking List"],
   // Figma Booking List 2.0 (5331:428546): home › "Booking List".
-  "/bookings-2/list": ["Booking List"],
+  "/bookings/list": ["Booking List"],
   // Figma Booking Details (5511:16209): home › Booking List › "Booking Details".
-  "/bookings-2/detail": ["Booking List", "Booking Details"],
   "/bookings/detail": ["Booking List", "Booking Detail"],
   "/training-results": ["Training Results"],
   "/training-results/detail": ["Training Results", "Detail"],

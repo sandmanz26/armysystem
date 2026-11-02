@@ -91,7 +91,7 @@ export function OngoingSessionPage({ onNavigate }: { onNavigate: (path: string) 
       <div className="fixed inset-0 z-[1000] flex items-center justify-center bg-default-soft">
         <div className="text-center">
           <p className="mb-4 text-sm text-body">Booking not found in Booking 2.0.</p>
-          <button type="button" onClick={() => onNavigate("/bookings-2/list")} className="text-sm font-semibold text-primary">
+          <button type="button" onClick={() => onNavigate("/bookings/list")} className="text-sm font-semibold text-primary">
             Back to Booking List
           </button>
         </div>
@@ -124,7 +124,7 @@ export function OngoingSessionPage({ onNavigate }: { onNavigate: (path: string) 
     }
   };
 
-  const goBooking = () => onNavigate(`/bookings-2/detail?id=${session.bookingId}`);
+  const goBooking = () => onNavigate(`/bookings/detail?id=${session.bookingId}`);
 
   if (view.kind === "ended") {
     return (

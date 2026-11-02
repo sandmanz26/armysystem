@@ -377,13 +377,13 @@ export function TodaysBooking2({ onNavigate }: TodaysBookingProps) {
           <div className="flex gap-3">
             <Button
               type="outline"
-              onClick={() => onNavigate("/bookings-2/list")}
+              onClick={() => onNavigate("/bookings/list")}
               className="w-auto h-10 px-4 py-0 text-sm font-semibold rounded-lg bg-surface border border-invert-default text-default hover:bg-default-hovered"
             >
               View All Bookings
             </Button>
             <Button
-              onClick={() => onNavigate("/bookings-2/assignments/new")}
+              onClick={() => onNavigate("/bookings/assignments/new")}
               className="w-auto h-10 px-4 py-0 text-sm font-semibold rounded-lg bg-primary-default text-invert-default hover:bg-primary-hovered"
             >
               Issue Assets
@@ -468,7 +468,7 @@ export function TodaysBooking2({ onNavigate }: TodaysBookingProps) {
         <BookingPreviewDrawer
           booking={previewBooking}
           onClose={() => setPreviewBooking(null)}
-          onViewFull={() => onNavigate(`/bookings-2/detail?id=${previewBooking.id}`)}
+          onViewFull={() => onNavigate(`/bookings/detail?id=${previewBooking.id}`)}
         />
       )}
     </div>

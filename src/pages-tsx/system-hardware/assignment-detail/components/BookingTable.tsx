@@ -129,7 +129,7 @@ export function BookingTable({
             <button
               type="button"
               title="View booking"
-              onClick={() => onNavigate?.(`/bookings-2/detail?id=${info.row.original.bookingKey}`)}
+              onClick={() => onNavigate?.(`/bookings/detail?id=${info.row.original.bookingKey}`)}
               className="w-7 h-7 inline-flex items-center justify-center rounded-md text-disabled hover:text-primary hover:bg-danger-invert-soft transition-colors"
             >
               <Icon name="eye" size={16} />

@@ -97,7 +97,7 @@ function SectionCard({ title, children }: { title: string; children: React.React
 
 export interface CreateAssignmentViewProps {
   entry: CreateAssignmentEntry;
-  /** Step 2 route: `/bookings-2/issue-assets` or `/system-hardware/issue-assets`. */
+  /** Step 2 route: `/bookings/issue-assets` or `/system-hardware/issue-assets`. */
   issueBase: string;
   /** Where the ✕ goes. */
   cancelPath: string;

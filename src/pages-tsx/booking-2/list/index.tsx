@@ -42,7 +42,7 @@ export interface BookingList2Props {
   createPath?: string;
 }
 
-export function BookingList2({ onNavigate, createPath = "/bookings-2/create" }: BookingList2Props) {
+export function BookingList2({ onNavigate, createPath = "/bookings/create" }: BookingList2Props) {
   const [activeTab, setActiveTab] = useState<TabType>("Overall");
   const [viewMode, setViewMode] = useState<"list" | "calendar">("list");
   const [currentPage, setCurrentPage] = useState(1);

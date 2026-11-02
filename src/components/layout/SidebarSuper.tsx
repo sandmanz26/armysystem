@@ -185,20 +185,6 @@ function buildProgramNavGroup(program: ProgramDef): { label: string; items: NavI
               : []),
           ],
         },
-        // Booking 2.0 — WPT-only, isolated build still in discussion; see
-        // src/pages-tsx/booking-2. Mirrors the "Bookings" entry above 1:1
-        // (same Today's Booking / Booking List submenu shape).
-        ...(program.id === "WPT"
-          ? [{
-              label: "Booking 2.0",
-              icon: <CalendarDays size={16} />,
-              path: "/bookings-2/list",
-              children: [
-                { label: "Today's Booking", icon: <></>, path: "/bookings-2/today" },
-                { label: "Booking List",    icon: <></>, path: "/bookings-2/list"  },
-              ],
-            }]
-          : []),
         ...(program.id === "WPT"
           ? [
               { label: "Training Results 2.0", icon: <GraduationCap size={16} />, path: "/training-results-2" },

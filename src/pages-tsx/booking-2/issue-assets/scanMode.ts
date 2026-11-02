@@ -1,6 +1,6 @@
 // Scan Assets — Top Up and Scan & Return modes (F-009, SH-4 / SH-27 / SH-18 / BD-14 / BD-20).
 //
-// The Issue scan page (`/bookings-2/issue-assets`, `/system-hardware/issue-assets`) takes
+// The Issue scan page (`/bookings/issue-assets`, `/system-hardware/issue-assets`) takes
 // `mode=topup|return`; without it (or `mode=issue`) the page is the unchanged Issue flow.
 //
 //   Top Up (Booking)        5895:360297 Empty · 5895:360312 Filled · toast 5895:360327 "Top up asset issued"
@@ -302,7 +302,7 @@ export function buildScanContext(mode: ScanMode): ScanContext {
   const assignmentId = p.get("assignmentId");
   const booking = findBooking(bookingId);
   if (booking) {
-    const returnTo = p.get("returnTo") || `/bookings-2/detail?id=${booking.id}`;
+    const returnTo = p.get("returnTo") || `/bookings/detail?id=${booking.id}`;
     return bookingContext(mode, booking, p.get("courseware"), assignmentId, returnTo);
   }
   const a = findAssignment(assignmentId);
@@ -415,7 +415,7 @@ function issueContext(): ScanContext {
     scanQueue: renumber(queue),
     wrongItem: queue.length ? "M4 #0231" : undefined,
     returnTo,
-    doneTo: involved[0] ? `/bookings-2/detail?id=${involved[0].id}` : "/bookings-2/list",
+    doneTo: involved[0] ? `/bookings/detail?id=${involved[0].id}` : "/bookings/list",
     coursewares: coursewares.length > 1 ? coursewares : undefined,
     complete: () => "Assignment issued",
   };
@@ -449,7 +449,7 @@ export function takeScanFlash(): string | null {
 
 /** Builds the scan page URL for an entry point. */
 export function scanUrl(
-  base: "/bookings-2/issue-assets" | "/system-hardware/issue-assets",
+  base: "/bookings/issue-assets" | "/system-hardware/issue-assets",
   mode: "topup" | "return",
   params: Record<string, string | undefined>,
   returnTo: string,

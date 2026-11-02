@@ -121,10 +121,10 @@ export function PostSessionActions({
           onClick={() =>
             onNavigate?.(
               scanUrl(
-                "/bookings-2/issue-assets",
+                "/bookings/issue-assets",
                 "return",
                 { bookingIds: booking.id, baseStation: booking.assignedStations?.[0] },
-                `/bookings-2/detail?id=${booking.id}`,
+                `/bookings/detail?id=${booking.id}`,
               ),
             )
           }

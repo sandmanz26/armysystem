@@ -71,7 +71,7 @@ export function BookingTable({
       cell: (info: any) => (
         <div
           className="text-sm text-body cursor-pointer"
-          onClick={() => onNavigate?.(`/bookings-2/detail?id=${info.row.original.id}`)}
+          onClick={() => onNavigate?.(`/bookings/detail?id=${info.row.original.id}`)}
         >
           {(currentPage - 1) * PER_PAGE + info.row.index + 1}
         </div>
@@ -87,7 +87,7 @@ export function BookingTable({
         return (
           <div
             className="cursor-pointer max-w-[280px]"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             <div className="font-semibold text-sm text-default hover:text-primary transition-colors leading-snug line-clamp-2">
               {booking.program}
@@ -108,7 +108,7 @@ export function BookingTable({
         return (
           <div
             className="text-sm text-default cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             {booking.trainingType}
           </div>
@@ -124,7 +124,7 @@ export function BookingTable({
         return (
           <div
             className="text-sm text-default cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             {booking.trainingMode}
           </div>
@@ -140,7 +140,7 @@ export function BookingTable({
         return (
           <MultiValueCell
             value={booking.courseware}
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           />
         );
       },
@@ -179,7 +179,7 @@ export function BookingTable({
         return (
           <div
             className="cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             <div className="text-sm text-default">
               {multi && timeRange ? `${date} ${timeRange}` : date}
@@ -206,7 +206,7 @@ export function BookingTable({
         return (
           <div
             className="cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             <StatusBadge tone={BOOKING_STATUS_TONE[booking.status]}>{booking.status}</StatusBadge>
           </div>
@@ -222,7 +222,7 @@ export function BookingTable({
         return (
           <MultiValueCell
             value={booking.assignmentId}
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           />
         );
       },
@@ -236,7 +236,7 @@ export function BookingTable({
         return (
           <div
             className="text-sm text-default cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             {booking.unitName}
           </div>
@@ -253,7 +253,7 @@ export function BookingTable({
         return (
           <MultiValueCell
             value={list}
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           />
         );
       },
@@ -267,7 +267,7 @@ export function BookingTable({
         return (
           <MultiValueCell
             value={booking.briefingRoom}
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           />
         );
       },
@@ -281,7 +281,7 @@ export function BookingTable({
         return (
           <div
             className="cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             <StationQtyCell
               flatQty={booking.baseStationQty}
@@ -302,7 +302,7 @@ export function BookingTable({
         return (
           <div
             className="text-sm text-default cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             {booking.traineesCount ?? "-"}
           </div>
@@ -318,7 +318,7 @@ export function BookingTable({
         return (
           <div
             className="text-sm text-default cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             {booking.instructorName ?? "-"}
           </div>
@@ -334,7 +334,7 @@ export function BookingTable({
         return (
           <div
             className="text-sm text-default cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             {booking.ftmsFileId ?? "-"}
           </div>
@@ -351,7 +351,7 @@ export function BookingTable({
         return (
           <div
             className="cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             <div className="text-sm text-default">{date || "\u2014"}</div>
             {time && <div className="mt-0.5 text-xs text-body">{time}</div>}
@@ -368,7 +368,7 @@ export function BookingTable({
         return (
           <div
             className="cursor-pointer"
-            onClick={() => onNavigate?.(`/bookings-2/detail?id=${booking.id}`)}
+            onClick={() => onNavigate?.(`/bookings/detail?id=${booking.id}`)}
           >
             <div className="text-sm text-default">{booking.createdBy ?? "\u2014"}</div>
             {booking.createdByRole && (
@@ -397,7 +397,7 @@ export function BookingTable({
               onClick={(e) => {
                 e.stopPropagation();
                 if (onViewBooking) onViewBooking(booking);
-                else onNavigate?.(`/bookings-2/detail?id=${booking.id}`);
+                else onNavigate?.(`/bookings/detail?id=${booking.id}`);
               }}
               className="p-1.5 rounded-md text-disabled hover:text-primary hover:bg-danger-invert-soft transition-colors"
               title="View Details"

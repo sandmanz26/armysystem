@@ -261,7 +261,7 @@ export function CalendarView({ onNavigate }: CalendarViewProps) {
     return () => clearInterval(t);
   }, []);
 
-  const open = (e: CalEvent) => onNavigate?.(`/bookings-2/detail?id=${e.booking.id}`);
+  const open = (e: CalEvent) => onNavigate?.(`/bookings/detail?id=${e.booking.id}`);
   const goDay = (d: Date) => { setMode("Day"); setCursor(d); };
   const todayKey = dateKey(now);
   const weekStart = mondayOf(cursor);

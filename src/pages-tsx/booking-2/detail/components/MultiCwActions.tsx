@@ -8,7 +8,7 @@
 //                    "1 courseware cancelled" 6495:75089 · "2 courseware cancelled" 6501:286022 ·
 //                    "Booking cancelled" 6501:286605.
 //   Start Onboarding Select Courseware (6829:39115) when 2+ courseware are ready; exactly one ready
-//                    skips it (sticker 7908:12688) → existing /bookings-2/onboarding route with
+//                    skips it (sticker 7908:12688) → existing /bookings/onboarding route with
 //                    `courseware=`.
 //   Top Up Assets    Select Assignment (6829:38601) → Scan Assets in Top Up mode (F-009, mode=topup).
 // Reschedule / Cancel list only courseware that are still Upcoming and not asset-issued — the info
@@ -153,7 +153,7 @@ export function MultiCwActions({ action, booking, multi, onClose, onToast, onCan
         onCancel={onClose}
         onContinue={([v]) => {
           onClose();
-          onNavigate?.(`/bookings-2/onboarding?id=${booking.id}&courseware=${encodeURIComponent(byIndex(v).name)}`);
+          onNavigate?.(`/bookings/onboarding?id=${booking.id}&courseware=${encodeURIComponent(byIndex(v).name)}`);
         }}
       />
     );
@@ -178,10 +178,10 @@ export function MultiCwActions({ action, booking, multi, onClose, onToast, onCan
           // F-009 BD-14: the scan page in Top Up mode for that assignment; back here afterwards.
           onNavigate?.(
             scanUrl(
-              "/bookings-2/issue-assets",
+              "/bookings/issue-assets",
               "topup",
               { baseStation: cws[0]?.baseStation, bookingIds: booking.id, assignmentId: a, courseware: cws.map((c) => c.name).join(", ") },
-              `/bookings-2/detail?id=${booking.id}`,
+              `/bookings/detail?id=${booking.id}`,
             ),
           );
         }}

@@ -75,7 +75,7 @@ export function Onboarding2({ onClose }: Onboarding2Props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bookingId]);
 
-  const goClose = () => (onClose ? onClose() : (window.location.href = "/bookings-2/list"));
+  const goClose = () => (onClose ? onClose() : (window.location.href = "/bookings/list"));
   const goBack = () => (step > 0 ? setStep(step - 1) : goClose());
 
   const handlePrimary = () => {
@@ -89,7 +89,7 @@ export function Onboarding2({ onClose }: Onboarding2Props) {
   const goBegin = () => {
     if (!booking || !sessionSeed) return;
     saveSession(sessionFromOnboarding(booking, courseware, sessionSeed.stations, sessionSeed.details));
-    window.location.href = `/bookings-2/session?id=${booking.id}&begun=1`;
+    window.location.href = `/bookings/session?id=${booking.id}&begun=1`;
   };
 
   if (!booking) {
@@ -97,7 +97,7 @@ export function Onboarding2({ onClose }: Onboarding2Props) {
       <div className="fixed inset-0 z-[1000] bg-white flex items-center justify-center">
         <div className="text-center">
           <p className="text-figma-body mb-4">Booking not found in Booking 2.0.</p>
-          <button type="button" onClick={() => (window.location.href = "/bookings-2/list")} className="text-figma-primary font-semibold text-sm">
+          <button type="button" onClick={() => (window.location.href = "/bookings/list")} className="text-figma-primary font-semibold text-sm">
             Back to Booking List
           </button>
         </div>
